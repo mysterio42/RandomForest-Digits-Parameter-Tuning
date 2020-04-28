@@ -34,6 +34,7 @@ if __name__ == '__main__':
     args = parse_args()
 
     features, labels = load_data()
+
     to_markdown(features, labels)
 
     plot_pca(features.to_numpy(), labels.to_numpy())
