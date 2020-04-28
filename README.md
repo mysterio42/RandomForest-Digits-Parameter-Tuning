@@ -86,4 +86,4 @@ min_samples_leaf: 1
 
 ### Visualize the trained RandomForestClassifier
 
-<img src="figures/RandomForest-gs-graph.svg" width="31075" height="1868" />
+<img src="figures/RandomForest-gs-graph.png" width="31075" height="1868" />
