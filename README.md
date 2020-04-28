@@ -203,3 +203,23 @@ min_samples_leaf: 1
 ### Visualize the trained RandomForestClassifier
 
 <img src="figures/RandomForest-gs-graph.png" width="31075" height="1868" />
+
+
+
+# Docker for the RandomForestClassifier  model
+
+## Build the Docker image
+
+You can build docker image by following:
+
+```shell
+docker-compose build
+```
+
+## Run Docker container
+
+You can launch a container from the Docker image by following:
+
+```shell
+docker-compose up
+```
