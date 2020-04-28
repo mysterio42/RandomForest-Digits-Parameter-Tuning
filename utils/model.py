@@ -26,12 +26,14 @@ def latest_modified_weight():
     return latest
 
 
-def load_model(path):
+def load_model():
     """
 
     :param path: weight path
     :return: load model based on the path
     """
+    path = latest_modified_weight()
+
     with open(path, 'rb') as f:
         return joblib.load(filename=f)
 
