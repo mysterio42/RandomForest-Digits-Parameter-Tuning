@@ -1,9 +1,11 @@
+import argparse
+
 import numpy as np
 
-from utils.data import load_data
+from utils.data import load_data, to_markdown
 from utils.model import train_model
-from utils.plot import plot_graph
-import argparse
+from utils.plot import plot_graph, plot_pca
+
 
 def parse_args():
     def str2bool(v):
@@ -25,14 +27,17 @@ def parse_args():
 
     return parser.parse_args()
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     np.random.seed(1)
 
     args = parse_args()
 
     features, labels = load_data()
+    to_markdown(features, labels)
 
-    model = train_model(features, labels,args)
+    plot_pca(features.to_numpy(), labels.to_numpy())
 
-    plot_graph(model, features, labels,'RandomForest-gs-graph')
+    model = train_model(features, labels, args)
+
+    plot_graph(model, features, labels, 'RandomForest-gs-graph')

@@ -3,6 +3,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from sklearn.decomposition import PCA
 from sklearn.tree import export_graphviz
 
 from utils.data import fet_lab_names
@@ -35,3 +36,16 @@ def plot_graph(model, features, labels, graph_name):
                     precision=2, proportion=True)
 
     os.system(f'dot {param} {dot_path} -o {svg_path}')
+
+
+def plot_pca(features, labels):
+    pca = PCA(n_components=2)
+    projections = pca.fit_transform(features)
+    plt.scatter(projections[:, 0], projections[:, 1],
+                c=labels, edgecolor='none', alpha=0.5,
+                cmap=plt.cm.get_cmap('nipy_spectral', 10))
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.colorbar()
+    plt.savefig(FIGURES_DIR+'Figure_digits'+'.png')
+    plt.show()
